@@ -15,12 +15,11 @@ module.exports = function (config) {
 // 	var libSources = require(__dirname + '/../build/build.js').getFiles();
 
 	var files = [
-		"src/Leaflet.js",
+		"src/main.js",
 		"spec/after.js",
 		"node_modules/happen/happen.js",
 		"node_modules/prosthetic-hand/dist/prosthetic-hand.js",
-		"spec/suites/SpecHelper.js",
-		"spec/suites/**/*.js",
+		"spec/suites/*.test.js",
 		"dist/*.css",
 		{pattern: "dist/images/*.png", included: false, serve: true}
 	];
@@ -28,7 +27,7 @@ module.exports = function (config) {
 	var preprocessors = {};
 
 	if (config.cov) {
-		preprocessors['src/**/*.js'] = ['coverage'];
+		preprocessors['src/*.js'] = ['coverage'];
 	}
 
 	preprocessors['src/Leaflet.js'] = ['rollup'];
