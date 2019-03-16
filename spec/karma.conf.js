@@ -1,27 +1,22 @@
+var pkg= require('../package.json');
+
 var json = require('rollup-plugin-json');
 
-const outro = `var oldL = window.L;
-exports.noConflict = function() {
-	window.L = oldL;
-	return this;
-}
-
-// Always export us to window global (see #2364)
-window.L = exports;`;
-
+const outro = `window.${pkg.name}= exports; `; //XXX: Coordinar con build/rollup-config.js
+	
 // Karma configuration
 module.exports = function (config) {
 
 // 	var libSources = require(__dirname + '/../build/build.js').getFiles();
 
 	var files = [
-		"src/main.js",
+		"src/"+pkg.name+".js",
 		"spec/after.js",
 		"node_modules/happen/happen.js",
 		"node_modules/prosthetic-hand/dist/prosthetic-hand.js",
 		"spec/suites/*.test.js",
-		"dist/*.css",
-		{pattern: "dist/images/*.png", included: false, serve: true}
+		//"dist/*.css",
+		//{pattern: "dist/images/*.png", included: false, serve: true}
 	];
 
 	var preprocessors = {};
@@ -30,7 +25,7 @@ module.exports = function (config) {
 		preprocessors['src/*.js'] = ['coverage'];
 	}
 
-	preprocessors['src/Leaflet.js'] = ['rollup'];
+	preprocessors['src/'+pkg.name+'.js'] = ['rollup'];
 
 	config.set({
 		// base path, that will be used to resolve files and exclude
@@ -64,7 +59,7 @@ module.exports = function (config) {
 				json()
 			],
 			format: 'umd',
-			name: 'L',
+			name: pkg.name,
 			outro: outro
 		},
 

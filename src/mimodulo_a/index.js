@@ -1,6 +1,10 @@
-//INFO: Modulo de ejemplo tiene qe exportar
-function agarrarTexto() {
-	return 'test'; //	window.getElementById("texto").innerHTML;
+// INFO: Modulo de ejemplo tiene qe exportar
+function agarrarTexto(algo) {
+	if (algo) {
+		return 'test'; //	window.getElementById("texto").innerHTML;
+	} else {
+		return 'probame';
+	}
 }
 
-export { agarrarTexto };
+export {agarrarTexto};

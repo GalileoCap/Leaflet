@@ -10,3 +10,7 @@ Para testear: Esta incluido en spec/index.html como lo carga el browser (sin imp
 	index.html carga otros js con los tests
 	Se ejecuta con MOCHA y KARMA
 	Podemos usar 'npm run test -- -- --cov' y generar coverage/
+	
+	Si hay problemas con KARMA:
+		npx karma --log-level debug --singleRun true --no-browsers --port 8080 start ./spec/karma.conf.js
+	(conectarse con el browser http://127.0.0.1:8080/ o http://127.0.0.1:18080/ si estas desde Vagrant)

@@ -24,7 +24,9 @@ const banner = `/* @preserve
  */
 `;
 
-const outro = `/* 
+const outro = `
+	window.${pkg.name}= exports;
+	/* 
 	/ Esto aparece al final de todos los archivos en dist/
 	/ Se configura en build/rollup-config.js
 	/ Puede ser un buen lugar para definir cosas publicas con
