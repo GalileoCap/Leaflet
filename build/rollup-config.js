@@ -1,7 +1,5 @@
 // Config file for running Rollup in "normal" mode (non-watch)
 
-const NombreModulo= 'MiApp'; //U: Lo qe define UMD como modulo
-
 import rollupGitVersion from 'rollup-plugin-git-version'
 import json from 'rollup-plugin-json'
 import gitRev from 'git-rev-sync'
@@ -33,21 +31,21 @@ const outro = `/*
 	/ window.MINOMBRE = exports;
 	*/`;
 
-console.log("ACA PKG MAIN", pkg.main);
+console.log("Construyendo segun package.json main:", pkg.name);
 
 export default {
-	input: 'src/'+NombreModulo+'.js',
+	input: 'src/'+pkg.name+'.js',
 	output: [
 		{
 			file: pkg.main,
 			format: 'umd',
-			name: NombreModulo,
+			name: pkg.name,
 			banner: banner,
 			outro: outro,
 			sourcemap: true
 		},
 		{
-			file: 'dist/'+NombreModulo.toLowerCase()+'-src.esm.js',
+			file: 'dist/'+pkg.name.toLowerCase()+'-src.esm.js',
 			format: 'es',
 			banner: banner,
 			sourcemap: true
