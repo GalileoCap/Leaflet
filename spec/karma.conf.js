@@ -54,7 +54,7 @@ module.exports = function (config) {
 		},
 		exclude: [],
 
-		// Rollup the ES6 Leaflet sources into just one file, before tests
+		// Rollup the ES6 sources into just one file, before tests
 		preprocessors: preprocessors,
 		rollupPreprocessor: {
 			plugins: [

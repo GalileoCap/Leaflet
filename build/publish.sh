@@ -3,10 +3,11 @@
 npm update
 
 VERSION=$(node --eval "console.log(require('./package.json').version);")
+ME=$(node --eval "console.log(require('./package.json').name);")
 
 npm test || exit 1
 
-echo "Ready to publish Leaflet version $VERSION."
+echo "Ready to publish ${ME} version $VERSION."
 echo "Has the version number been bumped?"
 read -n1 -r -p "Press Ctrl+C to cancel, or any other key to continue." key
 
@@ -18,7 +19,7 @@ npm run-script build
 
 echo "Creating git tag v$VERSION..."
 
-git add dist/leaflet-src.js dist/leaflet.js dist/leaflet-src.esm.js dist/leaflet-src.js.map dist/leaflet.js.map dist/leaflet-src.esm.js.map -f
+git add dist/${ME}-src.js dist/${ME}.js dist/${ME}-src.esm.js dist/${ME}-src.js.map dist/${ME}.js.map dist/${ME}-src.esm.js.map -f
 
 git commit -m "v$VERSION"
 

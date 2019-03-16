@@ -6,19 +6,18 @@ import gitRev from 'git-rev-sync'
 
 const branch = gitRev.branch();
 const rev = gitRev.short();
-const version = require('../package.json').version + '+' + branch + '.' + rev;
-const banner = `/* @preserve
- * Leaflet ${version}, a JS library for interactive maps. http://leafletjs.com
- * (c) 2010-2018 Vladimir Agafonkin, (c) 2010-2011 CloudMade
- */
+const pkg= require('../package.json');
+const version = pkg.version + '+' + branch + '.' + rev;
+const ME= pkg.name;
+const banner = `/* XXX:Banner */
 `;
 
 export default {
-	input: 'src/Leaflet.js',
+	input: 'src/'+ME+'.js',
 	output: {
-		file: 'dist/leaflet-src.js',
+		file: 'dist/'+ME.toLowerCase()+'-src.js',
 		format: 'umd',
-		name: 'L',
+		name: ME,
 		banner: banner,
 		sourcemap: true
 	},

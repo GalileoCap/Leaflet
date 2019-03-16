@@ -9,8 +9,8 @@ Thanks for taking the time to open an issue!
 Please provide a general summary of the issue in the title above .
 -->
 
-- [ ] I've looked at the [documentation](http://leafletjs.com/reference.html) to make sure the behavior is documented and expected
-- [ ] I'm sure this is a Leaflet code issue, not an issue with my own code nor with the framework I'm using (Cordova, Ionic, Angular, React…)
+- [ ] I've looked at the documentation to make sure the behavior is documented and expected
+- [ ] I'm sure this is a library code issue, not an issue with my own code nor with the framework I'm using (Cordova, Ionic, Angular, React…)
 - [ ] I've searched through the issues to make sure it's not yet reported
 
 **Steps to reproduce**
@@ -26,7 +26,7 @@ Steps to reproduce the behavior:
 <!-- A clear and concise description of what is actually happening. -->
 
 **Environment**
-- Leaflet version:
+- library version:
 - Browser (with version):
 - OS/Platform (with version):
 
@@ -35,7 +35,7 @@ Steps to reproduce the behavior:
 
 **Minimal example reproducing the issue**
 
-Please create an example using https://leafletjs.com/edit.html or any other jsfiddle-like site.
+Please create an example using a jsfiddle-like site.
 
 - [ ] this example is as simple as possible
 - [ ] this example does not rely on any third party code

@@ -1,10 +1,10 @@
 {
-  "name": "leaflet",
-  "description": "JavaScript library for mobile-friendly interactive maps",
+  "name": "MiApp",
+  "description": "JavaScript library for XXX:Config",
   "license": "BSD-2-Clause",
   "main": [
-    "dist/leaflet.css",
-    "dist/leaflet-src.js"
+    "dist/miapp.css",
+    "dist/miapp-src.js"
   ],
   "ignore": [
     ".*",
