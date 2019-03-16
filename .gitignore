@@ -10,7 +10,7 @@ _site
 dist/*.js
 dist/*.map
 dist/reference.html
-coverage/
+coverage/*
 *.js.html
 .mailmap
 bower.json
