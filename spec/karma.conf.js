@@ -32,6 +32,8 @@ module.exports = function (config) {
 		basePath: '../',
 
 		plugins: [
+			'karma-nicer-reporter',
+			'karma-htmlfile-reporter',
 			'karma-rollup-preprocessor',
 			'karma-mocha',
 			'karma-sinon',
@@ -65,9 +67,21 @@ module.exports = function (config) {
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-		reporters: config.cov ? ['dots', 'coverage'] : ['dots'],
+		reporters: config.cov ? ['nicer', 'html', 'coverage'] : ['nicer', 'html'],
 
 		coverageReporter: config.cov ? {type : 'html', dir : 'coverage/'} : null,
+
+		htmlReporter: {
+      outputFile: 'coverage/tests_report.html',
+            
+      // Optional
+      pageTitle: 'Karma Tests',
+      subPageTitle: 'DESCRIPCION',
+      groupSuites: true,
+      useCompactStyle: true,
+      useLegacyStyle: true,
+      showOnlyFailed: false
+    },
 
 		// web server port
 		port: 9876,
