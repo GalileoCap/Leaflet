@@ -1,5 +1,5 @@
 {
-  "name": "leaflet",
+  "name": "miapp",
   "version": "1.4.0",
   "description": "JavaScript library for mobile-friendly interactive maps",
   "devDependencies": {
@@ -30,12 +30,12 @@
     "ssri": "^5.2.2",
     "uglify-js": "~3.0.26"
   },
-  "main": "dist/leaflet-src.js",
-  "style": "dist/leaflet.css",
+  "main": "dist/miapp-src.js",
+  "style": "dist/miapp.css",
   "files": [
     "dist",
     "src",
-    "!dist/leaflet.zip"
+    "!dist/miapp.zip"
   ],
   "scripts": {
     "docs": "node ./build/docs.js",

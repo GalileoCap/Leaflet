@@ -1,5 +1,7 @@
 // Config file for running Rollup in "normal" mode (non-watch)
 
+const NombreModulo= 'MiApp'; //U: Lo qe define UMD como modulo
+
 import rollupGitVersion from 'rollup-plugin-git-version'
 import json from 'rollup-plugin-json'
 import gitRev from 'git-rev-sync'
@@ -19,33 +21,33 @@ if (process.env.NODE_ENV === 'release') {
 }
 
 const banner = `/* @preserve
- * Leaflet ${version}, a JS library for interactive maps. http://leafletjs.com
- * (c) 2010-2018 Vladimir Agafonkin, (c) 2010-2011 CloudMade
+ / Esto aparece al principio de todos los archivos en dist/
+ / Se configura en build/rollup-config.js
  */
 `;
 
-const outro = `var oldL = window.L;
-exports.noConflict = function() {
-	window.L = oldL;
-	return this;
-}
+const outro = `/* 
+	/ Esto aparece al final de todos los archivos en dist/
+	/ Se configura en build/rollup-config.js
+	/ Puede ser un buen lugar para definir cosas publicas con
+	/ window.MINOMBRE = exports;
+	*/`;
 
-// Always export us to window global (see #2364)
-window.L = exports;`;
+console.log("ACA PKG MAIN", pkg.main);
 
 export default {
-	input: 'src/Leaflet.js',
+	input: 'src/'+NombreModulo+'.js',
 	output: [
 		{
 			file: pkg.main,
 			format: 'umd',
-			name: 'L',
+			name: NombreModulo,
 			banner: banner,
 			outro: outro,
 			sourcemap: true
 		},
 		{
-			file: 'dist/leaflet-src.esm.js',
+			file: 'dist/'+NombreModulo.toLowerCase()+'-src.esm.js',
 			format: 'es',
 			banner: banner,
 			sourcemap: true
